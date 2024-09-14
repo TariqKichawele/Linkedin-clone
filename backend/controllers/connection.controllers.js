@@ -53,7 +53,7 @@ export const acceptConnectionRequest = async (req, res) => {
             return res.status(404).json({ message: 'Connection request not found.' });
         }
 
-        if(request.recipient.toString()!== recipientId) {
+        if(request.recipient._id.toString() !== recipientId) {
             return res.status(401).json({ message: 'Unauthorized.' });
         }
 

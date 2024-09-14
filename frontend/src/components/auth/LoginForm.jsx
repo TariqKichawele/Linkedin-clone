@@ -3,10 +3,13 @@ import { useState } from "react"
 import { axiosInstance } from "../../lib/axios";
 import toast from "react-hot-toast";
 import { Loader } from "lucide-react";
+import { useNavigate }from 'react-router-dom'
 
 const LoginForm = () => {
     const [ username, setUsername ] = useState('');
     const [ password, setPassword ] = useState('');
+
+    const navigate = useNavigate()
 
     const queryClient = useQueryClient();
 
@@ -17,6 +20,7 @@ const LoginForm = () => {
         onSuccess: () => {
             toast.success('Logged in successfully');
             queryClient.invalidateQueries({ queryKey: ['authUser']});
+            navigate('/')
         },
         onError: (error) => {
             toast.error('Error logging in');
@@ -27,6 +31,7 @@ const LoginForm = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         LoginMutation({ username, password });
+        navigate('/')
     }
 
 
