@@ -8,6 +8,7 @@ import HomePage from "./pages/HomePage"
 import SignUpPage from "./pages/auth/SignUpPage"
 import LoginPage from "./pages/auth/LoginPage"
 import NotificationsPage from "./pages/NotificationsPage"
+import NetworkPage from "./pages/NetworkPage"
 
 
 
@@ -39,7 +40,8 @@ function App() {
           <Route path="/" element={authUser ? <HomePage /> : <Navigate to={'/login'}/>} />
           <Route path="/signup" element={!authUser ? <SignUpPage /> : <Navigate to={'/'}/>} />
           <Route path="/login" element={!authUser ? <LoginPage /> : <Navigate to={'/'}/>} />
-          <Route path="/notifications" element={authUser ? <NotificationsPage /> : <Navigate to={'/login'}/>}/>
+          <Route path="/notifications" element={authUser ? <NotificationsPage /> : <Navigate to={'/login'}/>} />
+          <Route path="/network" element={authUser ? <NetworkPage /> : <Navigate to={'/login'}/>} />
         </Routes>
         <Toaster />
      </Layout>
