@@ -31,9 +31,7 @@ function App() {
     }
   })
 
-  if(isLoading) {
-    return <div>Loading...</div>
-  }
+  if(isLoading) return null;
 
   return (
     <>

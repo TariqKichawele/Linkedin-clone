@@ -38,7 +38,7 @@ const Post = ({ post }) => {
 
     const { mutate: likePost, isPending: isLikingPost } = useMutation({
         mutationFn: async () => {
-            axiosInstance.post(`/posts/${post._id}/like`);
+            await axiosInstance.post(`/posts/${post._id}/like`);
         },
         onSuccess: () => {
             queryClient.invalidateQueries({ queryKey: ['posts'] });
@@ -69,8 +69,8 @@ const Post = ({ post }) => {
         }
     };
 
-    const handleLikePost = () => {
-        if(isLikingPost) return;
+    const handleLikePost = async () => {
+		if(isLikingPost) return;
         likePost();
     };
 

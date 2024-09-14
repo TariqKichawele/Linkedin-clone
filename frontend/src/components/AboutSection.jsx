@@ -6,8 +6,8 @@ const AboutSection = ({ userData, isOwnProfile, onSave }) => {
     const [ about, setAbout ] = useState(userData.about || '');
 
     const handleSave = () => {
-        onSave({ about });
         setIsEditing(false);
+		onSave({ about });
     }
     
   return (

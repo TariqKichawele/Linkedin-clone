@@ -1,5 +1,5 @@
 import { mailtrapclient, sender } from "../lib/mailtrap.js";
-import { createWelcomeEmailTemplate } from "./emailTemplates.js";
+import { createConnectionAcceptedEmailTemplate, createWelcomeEmailTemplate } from "./emailTemplates.js";
 
 
 export const sendWelcomeEmail = async (email, name, profileUrl) => {
